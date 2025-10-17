@@ -1,0 +1,15 @@
+{
+  "mcp": {
+    "servers": {
+      "web": {
+        "command": [
+          "uvx",
+          "--from",
+          "mcp-browser",
+          "mcp-browser",
+          "mcp"
+        ]
+      }
+    }
+  }
+}
