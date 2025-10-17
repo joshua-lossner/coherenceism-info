@@ -52,9 +52,9 @@ function generateNav() {
     <nav class="site-nav">
       <a href="/" class="nav-logo">Coherenceism</a>
       <div class="nav-links">
-        <a href="/roots/coherenceism-root.html">Roots</a>
-        <a href="/branches/index.html">Branches</a>
-        <a href="/about.html">About</a>
+        <a href="/roots/coherenceism-root">Roots</a>
+        <a href="/branches">Branches</a>
+        <a href="/about">About</a>
       </div>
     </nav>
   `;
@@ -158,12 +158,12 @@ function build() {
       <div class="feature">
         <h3>Roots</h3>
         <p>Foundation and anchors of the coherentist lens</p>
-        <a href="/roots/coherenceism-root.html">Explore →</a>
+        <a href="/roots/coherenceism-root">Explore →</a>
       </div>
       <div class="feature">
         <h3>Branches</h3>
         <p>Major themes and areas of exploration</p>
-        <a href="/branches/index.html">Explore →</a>
+        <a href="/branches">Explore →</a>
       </div>
     </section>
   `;
