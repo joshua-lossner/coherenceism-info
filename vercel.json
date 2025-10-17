@@ -5,8 +5,24 @@
   "framework": null,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/$1.html"
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/roots/:path*",
+      "destination": "/roots/:path*.html"
+    },
+    {
+      "source": "/branches/:path*",
+      "destination": "/branches/:path*.html"
+    },
+    {
+      "source": "/leaves/:path*",
+      "destination": "/leaves/:path*.html"
+    },
+    {
+      "source": "/philosophy/:path*",
+      "destination": "/philosophy/:path*.html"
     }
   ],
   "headers": [
