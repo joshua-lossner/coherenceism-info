@@ -1,0 +1,20 @@
+{
+  "name": "coherenceism-info",
+  "version": "1.0.0",
+  "description": "Information site for Coherenceism philosophy",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build.js --watch",
+    "build": "node scripts/sync-content.js && node scripts/build.js",
+    "sync": "node scripts/sync-content.js",
+    "preview": "npx serve public"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^9.1.0"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3",
+    "serve": "^14.2.0"
+  }
+}
