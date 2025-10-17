@@ -53,7 +53,7 @@ function generateNav() {
       <a href="/" class="nav-logo">Coherenceism</a>
       <div class="nav-links">
         <a href="/roots/coherenceism-root.html">Roots</a>
-        <a href="/branches">Branches</a>
+        <a href="/branches/index.html">Branches</a>
         <a href="/about.html">About</a>
       </div>
     </nav>
@@ -163,7 +163,7 @@ function build() {
       <div class="feature">
         <h3>Branches</h3>
         <p>Major themes and areas of exploration</p>
-        <a href="/branches">Explore →</a>
+        <a href="/branches/index.html">Explore →</a>
       </div>
     </section>
   `;
