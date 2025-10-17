@@ -1,9 +1,10 @@
 /* Coherentist Design System */
 :root {
-  /* Colors - minimal, clear contrast */
+  /* Colors - minimal, clear contrast with tree-green accents */
   --primary: #1a1a1a;
   --secondary: #4a4a4a;
-  --accent: #0066cc;
+  --accent: #2d5016;
+  --accent-light: #4a7c31;
   --background: #ffffff;
   --surface: #f8f8f8;
   --border: #e0e0e0;
@@ -29,7 +30,8 @@
   :root {
     --primary: #e8e8e8;
     --secondary: #b0b0b0;
-    --accent: #4d9eff;
+    --accent: #6db544;
+    --accent-light: #8bc96a;
     --background: #1a1a1a;
     --surface: #2a2a2a;
     --border: #404040;
@@ -63,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: var(--space-lg);
   margin-bottom: var(--space-md);
   font-weight: 600;
+  color: var(--accent);
 }
 
 h1 { font-size: 2.5rem; }
@@ -127,7 +130,7 @@ blockquote {
 .nav-logo {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--accent);
   border: none;
 }
 
@@ -217,6 +220,11 @@ main {
   margin-bottom: var(--space-md);
 }
 
+.feature a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
 /* Content List */
 .content-list {
   list-style: none;
@@ -289,6 +297,7 @@ footer .meta {
   display: inline-block;
   margin-top: var(--space-sm);
   font-weight: 500;
+  color: var(--accent);
 }
 
 /* Responsive */
