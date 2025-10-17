@@ -52,9 +52,9 @@ function generateNav() {
     <nav class="site-nav">
       <a href="/" class="nav-logo">Coherenceism</a>
       <div class="nav-links">
-        <a href="/roots/coherenceism-root">Roots</a>
-        <a href="/branches">Branches</a>
-        <a href="/about">About</a>
+        <a href="/roots.html">Roots</a>
+        <a href="/branches.html">Branches</a>
+        <a href="/about.html">About</a>
       </div>
     </nav>
   `;
@@ -158,18 +158,33 @@ function build() {
       <div class="feature">
         <h3>Roots</h3>
         <p>Foundation and anchors of the coherentist lens</p>
-        <a href="/roots/coherenceism-root">Explore →</a>
+        <a href="/roots.html">Explore →</a>
       </div>
       <div class="feature">
         <h3>Branches</h3>
         <p>Major themes and areas of exploration</p>
-        <a href="/branches">Explore →</a>
+        <a href="/branches.html">Explore →</a>
       </div>
     </section>
   `;
 
   const indexPage = buildPage(indexContent, 'Coherenceism - Home', 'home');
   fs.writeFileSync(path.join(publicPath, 'index.html'), indexPage);
+
+  // Copy key content to root level for Vercel
+  // Copy the main root document to /roots.html
+  const rootPath = path.join(publicPath, 'roots', 'coherenceism-root.html');
+  if (fs.existsSync(rootPath)) {
+    const rootContent = fs.readFileSync(rootPath, 'utf-8');
+    fs.writeFileSync(path.join(publicPath, 'roots.html'), rootContent);
+  }
+
+  // Copy branches index to /branches.html
+  const branchesPath = path.join(publicPath, 'branches', 'index.html');
+  if (fs.existsSync(branchesPath)) {
+    const branchesContent = fs.readFileSync(branchesPath, 'utf-8');
+    fs.writeFileSync(path.join(publicPath, 'branches.html'), branchesContent);
+  }
 
   // Build content pages
   if (fs.existsSync(contentPath)) {
