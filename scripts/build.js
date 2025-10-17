@@ -154,10 +154,6 @@ function build() {
       <p class="tagline">Truth emerges from resonance, not dominance</p>
     </div>
 
-    <section class="intro">
-      <p>Coherenceism views reality as an interconnected field where systems align when their parts reduce distortion for the whole. This site explores the lens and its applications.</p>
-    </section>
-
     <section class="features">
       <div class="feature">
         <h3>Roots</h3>
