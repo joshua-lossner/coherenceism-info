@@ -177,6 +177,9 @@ function build() {
   if (fs.existsSync(rootPath)) {
     const rootContent = fs.readFileSync(rootPath, 'utf-8');
     fs.writeFileSync(path.join(publicPath, 'roots.html'), rootContent);
+    console.log('✅ Created /roots.html');
+  } else {
+    console.log('❌ Source file missing:', rootPath);
   }
 
   // Copy branches index to /branches.html
@@ -184,6 +187,9 @@ function build() {
   if (fs.existsSync(branchesPath)) {
     const branchesContent = fs.readFileSync(branchesPath, 'utf-8');
     fs.writeFileSync(path.join(publicPath, 'branches.html'), branchesContent);
+    console.log('✅ Created /branches.html');
+  } else {
+    console.log('❌ Source file missing:', branchesPath);
   }
 
   // Build content pages
