@@ -1,0 +1,20 @@
+<svg width="200" height="160" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trunk -->
+  <rect x="95" y="80" width="10" height="40" fill="#4a4a4a" rx="2"/>
+
+  <!-- Roots -->
+  <path d="M100 120 Q85 130 70 125 M100 120 Q115 130 130 125 M100 120 Q100 135 95 145 M100 120 Q100 135 105 145"
+        stroke="#666" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Main Branches -->
+  <path d="M100 80 Q80 60 60 55 M100 80 Q120 60 140 55"
+        stroke="#4a4a4a" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Secondary Branches -->
+  <path d="M75 65 Q65 50 55 45 M75 65 Q85 50 90 40 M125 65 Q135 50 145 45 M125 65 Q115 50 110 40"
+        stroke="#4a4a4a" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Tertiary Branches -->
+  <path d="M65 55 Q60 40 50 35 M85 50 Q90 35 95 25 M115 50 Q110 35 105 25 M135 55 Q140 40 150 35"
+        stroke="#666" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>

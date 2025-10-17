@@ -12,7 +12,7 @@ npm run preview  # Serve at http://localhost:3000
 ```bash
 git add .
 git commit -m "Initial coherenceism.info site"
-git remote add origin https://github.com/yourusername/coherenceism-info.git
+git remote add origin https://github.com/joshua-lossner/coherenceism-info.git
 git push -u origin main
 ```
 

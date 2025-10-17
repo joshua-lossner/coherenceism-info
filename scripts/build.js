@@ -52,10 +52,9 @@ function generateNav() {
     <nav class="site-nav">
       <a href="/" class="nav-logo">Coherenceism</a>
       <div class="nav-links">
-        <a href="/philosophy">Philosophy</a>
-        <a href="/essays">Essays</a>
-        <a href="/tree">Knowledge Tree</a>
-        <a href="/about">About</a>
+        <a href="/roots/coherenceism-root.html">Roots</a>
+        <a href="/branches">Branches</a>
+        <a href="/about.html">About</a>
       </div>
     </nav>
   `;
@@ -104,6 +103,14 @@ function build() {
     fs.writeFileSync(cssDestPath, css);
   }
 
+  // Copy SVG assets
+  const svgSourcePath = path.join(templatesPath, 'tree.svg');
+  const svgDestPath = path.join(publicPath, 'tree.svg');
+  if (fs.existsSync(svgSourcePath)) {
+    const svg = fs.readFileSync(svgSourcePath, 'utf-8');
+    fs.writeFileSync(svgDestPath, svg);
+  }
+
   // Build about page
   const aboutPath = path.join(templatesPath, 'about.md');
   if (fs.existsSync(aboutPath)) {
@@ -120,7 +127,7 @@ function build() {
     <section class="tree-section">
       <h2>Roots</h2>
       <p>The foundation and anchors of Coherenceism</p>
-      <a href="/roots" class="tree-link">Explore Roots →</a>
+      <a href="/roots/coherenceism-root.html" class="tree-link">Explore Roots →</a>
     </section>
 
     <section class="tree-section">
@@ -142,29 +149,25 @@ function build() {
   // Build index page
   const indexContent = `
     <div class="hero">
+      <img src="/tree.svg" alt="Coherenceism Tree" class="hero-tree" />
       <h1>Coherenceism</h1>
       <p class="tagline">Truth emerges from resonance, not dominance</p>
     </div>
 
     <section class="intro">
-      <p>Coherenceism views reality as an interconnected field where systems align when their parts reduce distortion for the whole. This site explores the philosophy and its applications.</p>
+      <p>Coherenceism views reality as an interconnected field where systems align when their parts reduce distortion for the whole. This site explores the lens and its applications.</p>
     </section>
 
     <section class="features">
       <div class="feature">
-        <h3>Philosophy</h3>
-        <p>Core principles and practices of coherent thinking</p>
-        <a href="/philosophy/coherenceism.html">Explore →</a>
+        <h3>Roots</h3>
+        <p>Foundation and anchors of the coherentist lens</p>
+        <a href="/roots/coherenceism-root.html">Explore →</a>
       </div>
       <div class="feature">
-        <h3>Essays</h3>
-        <p>Deep dives into coherentist perspectives</p>
-        <a href="/essays">Read →</a>
-      </div>
-      <div class="feature">
-        <h3>Knowledge Tree</h3>
-        <p>Living structure of coherentist knowledge</p>
-        <a href="/tree.html">Browse →</a>
+        <h3>Branches</h3>
+        <p>Major themes and areas of exploration</p>
+        <a href="/branches">Explore →</a>
       </div>
     </section>
   `;
@@ -205,13 +208,26 @@ function build() {
       const indexPath = path.join(publicPath, category, 'index.html');
       const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
 
+      // Sort pages by order property if it exists, otherwise by title
+      const sortedPages = pages.sort((a, b) => {
+        const orderA = a.frontmatter.order || 999;
+        const orderB = b.frontmatter.order || 999;
+
+        if (orderA !== orderB) {
+          return orderA - orderB;
+        }
+
+        // If same order (or no order), sort by title
+        return a.title.localeCompare(b.title);
+      });
+
       const listHtml = `
         <h1>${categoryTitle}</h1>
         <ul class="content-list">
-          ${pages.map(p => `
+          ${sortedPages.map(p => `
             <li>
               <a href="${p.url}">${p.title}</a>
-              ${p.frontmatter.intent ? `<p class="meta">${p.frontmatter.intent}</p>` : ''}
+              ${p.frontmatter.summary || p.frontmatter.intent ? `<p class="meta">${p.frontmatter.summary || p.frontmatter.intent}</p>` : ''}
             </li>
           `).join('')}
         </ul>
