@@ -6,7 +6,14 @@ status: active
 updated: 2025-10-16
 tags: [coherenceism, website, downstream]
 init:
-  files: []
+  files:
+    - README.md
+    - package.json
+    - scripts/build.js
+    - scripts/sync-content.js
+    - src/templates/default.html
+    - src/templates/home.html
+    - src/templates/styles.css
 index:
   map:
     - cora/ (symlink to upstream CORA)
