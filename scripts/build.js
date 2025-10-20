@@ -254,6 +254,22 @@ function build() {
     console.log('❌ Source file missing:', branchesPath);
   }
 
+  // Hard-fail builds in CI if required pages are missing
+  if (!isWatchMode) {
+    const required = [
+      path.join(publicPath, 'index.html'),
+      path.join(publicPath, 'about.html'),
+      path.join(publicPath, 'roots.html'),
+      path.join(publicPath, 'branches.html')
+    ];
+
+    const missing = required.filter(p => !fs.existsSync(p));
+    if (missing.length) {
+      console.error('Build failed: missing outputs ->', missing.map(p => path.basename(p)).join(', '));
+      process.exit(1);
+    }
+  }
+
   console.log('\n✅ Build complete!');
 }
 
