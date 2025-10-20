@@ -171,27 +171,6 @@ function build() {
   const indexPage = buildPage(indexContent, 'Coherenceism - Home', 'home');
   fs.writeFileSync(path.join(publicPath, 'index.html'), indexPage);
 
-  // Copy key content to root level for Vercel
-  // Copy the main root document to /roots.html
-  const rootPath = path.join(publicPath, 'roots', 'coherenceism-root.html');
-  if (fs.existsSync(rootPath)) {
-    const rootContent = fs.readFileSync(rootPath, 'utf-8');
-    fs.writeFileSync(path.join(publicPath, 'roots.html'), rootContent);
-    console.log('✅ Created /roots.html');
-  } else {
-    console.log('❌ Source file missing:', rootPath);
-  }
-
-  // Copy branches index to /branches.html
-  const branchesPath = path.join(publicPath, 'branches', 'index.html');
-  if (fs.existsSync(branchesPath)) {
-    const branchesContent = fs.readFileSync(branchesPath, 'utf-8');
-    fs.writeFileSync(path.join(publicPath, 'branches.html'), branchesContent);
-    console.log('✅ Created /branches.html');
-  } else {
-    console.log('❌ Source file missing:', branchesPath);
-  }
-
   // Build content pages
   if (fs.existsSync(contentPath)) {
     const contentMap = {};
@@ -253,6 +232,26 @@ function build() {
       const page = buildPage(listHtml, `${categoryTitle} - Coherenceism`);
       fs.writeFileSync(indexPath, page);
     }
+  }
+
+  // After content is generated, copy key pages to root
+  // Ensure these are created from freshly built outputs in a clean build environment
+  const rootPath = path.join(publicPath, 'roots', 'coherenceism-root.html');
+  if (fs.existsSync(rootPath)) {
+    const rootContent = fs.readFileSync(rootPath, 'utf-8');
+    fs.writeFileSync(path.join(publicPath, 'roots.html'), rootContent);
+    console.log('✅ Created /roots.html');
+  } else {
+    console.log('❌ Source file missing:', rootPath);
+  }
+
+  const branchesPath = path.join(publicPath, 'branches', 'index.html');
+  if (fs.existsSync(branchesPath)) {
+    const branchesContent = fs.readFileSync(branchesPath, 'utf-8');
+    fs.writeFileSync(path.join(publicPath, 'branches.html'), branchesContent);
+    console.log('✅ Created /branches.html');
+  } else {
+    console.log('❌ Source file missing:', branchesPath);
   }
 
   console.log('\n✅ Build complete!');
