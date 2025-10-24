@@ -7,3 +7,4 @@ dist/
 *.log
 src/content/
 .cache/
+.vercel
